@@ -24,7 +24,7 @@ export default {
 
 <template>
 <div class="tag">
-  <span class="tag__title">태그 관리</span>
+  <span class="tag__title">태그 관리&nbsp;</span>
   <span
     @click="push('/add/tag')"
     class="tag__add"
@@ -51,6 +51,16 @@ export default {
   }
 
   &__add {
+    background: #FFAFBD;
+    background: -webkit-linear-gradient(to right, #ffc3a0, #FFAFBD);
+    background: linear-gradient(to right, #ffc3a0, #FFAFBD);
+
+    border: 0;
+    border-radius: 30px;
+    padding: 5px;
+
+    width: 70%;
+    color: white;
     user-select: none;
   }
 

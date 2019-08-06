@@ -24,7 +24,7 @@ export default {
 
 <template>
 <div class="color">
-  <span class="color__title">조명 색 온도 관리</span>
+  <span class="color__title">조명 색 온도 관리&nbsp;</span>
   <span
     @click="push('/add/color')"
     class="color__add"
@@ -51,6 +51,16 @@ export default {
   }
 
   &__add {
+    background: #FFAFBD;
+    background: -webkit-linear-gradient(to right, #ffc3a0, #FFAFBD);
+    background: linear-gradient(to right, #ffc3a0, #FFAFBD);
+
+    border: 0;
+    border-radius: 30px;
+    padding: 5px;
+
+    width: 70%;
+    color: white;
     user-select: none;
   }
 
