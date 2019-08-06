@@ -42,6 +42,7 @@ export default {
       >
       <input
         v-model="form.password"
+        type="password"
         @keyup.enter="login()"
         class="input__text home__form-item"
         placeholder="비밀번호를 입력하세요"
