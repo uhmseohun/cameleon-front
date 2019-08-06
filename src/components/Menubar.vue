@@ -13,6 +13,10 @@ export default {
           route: '/class'
         },
         {
+          title: '색상 관리',
+          route: '/color'
+        },
+        {
           title: '설정',
           route: '/setting'
         }
