@@ -3,7 +3,6 @@ import Logo from '@/assets/logo.png'
 
 export default {
   name: 'join',
-  components: { Logo },
   data () {
     return {
       Logo,
