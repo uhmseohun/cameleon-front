@@ -26,7 +26,7 @@ export default {
 <div class="subject">
   <span class="subject__title">과목 관리</span>
   <span
-    @click="push('/add/class')"
+    @click="push('/add/subject')"
     class="subject__add"
   >
     추가하기
