@@ -2,7 +2,7 @@
 import Logo from '@/assets/logo.png'
 
 export default {
-  name: 'home',
+  name: 'login',
   data () {
     return {
       Logo,
@@ -57,7 +57,7 @@ export default {
         계정이 없다면?&nbsp;
         <router-link
           class="home__form-join-go"
-          to="/join"
+          to="/auth/join"
         >
           회원가입
         </router-link>

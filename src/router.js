@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+import Login from '@/views/Login.vue'
+import Join from '@/views/Join.vue'
 
 Vue.use(Router)
 
@@ -25,7 +26,18 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home,
+      beforeEnter: requireAuth
+    },
+    {
+      path: '/auth/login',
+      name: 'login',
+      component: Login,
+      beforeEnter: forbidAuth
+    },
+    {
+      path: '/auth/join',
+      name: 'join',
+      component: Join,
       beforeEnter: forbidAuth
     }
   ]
