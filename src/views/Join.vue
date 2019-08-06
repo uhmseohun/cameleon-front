@@ -17,8 +17,9 @@ export default {
       if (this.password !== this.repassword) return
 
       this.$api.post('/auth/join', this.form)
-        .then(r => {
-          this.$swal('성공!', '회원가입을 성공했습니다.', 'success')
+        .then(async r => {
+          await this.$swal('성공!', '회원가입을 성공했습니다.', 'success')
+          this.$router.push('/auth/login')
         })
         .catch(e => {
           this.$swal('에러!', e.response.data.message, 'error')
