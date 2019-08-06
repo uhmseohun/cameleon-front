@@ -12,7 +12,6 @@ import SubjectList from '@/views/Subject.vue'
 import SubjectAdd from '@/views/AddSubject.vue'
 import TagList from '@/views/Tag.vue'
 import TagAdd from '@/views/AddTag.vue'
-import Setting from '@/views/Setting.vue'
 
 Vue.use(Router)
 
@@ -44,67 +43,91 @@ export default new Router({
       path: '/auth/login',
       name: 'login',
       component: Login,
-      beforeEnter: forbidAuth
+      beforeEnter: forbidAuth,
+      meta: {
+        title: '로그인'
+      }
     },
     {
       path: '/auth/join',
       name: 'join',
       component: Join,
-      beforeEnter: forbidAuth
+      beforeEnter: forbidAuth,
+      meta: {
+        title: '회원가입'
+      }
     },
     {
       path: '/color',
       name: 'color',
       component: ColorList,
-      beforeEnter: requireAuth
+      beforeEnter: requireAuth,
+      meta: {
+        title: '색 온도 목록'
+      }
     },
     {
       path: '/add/color',
       name: 'addcolor',
       component: ColorAdd,
-      beforeEnter: requireAuth
+      beforeEnter: requireAuth,
+      meta: {
+        title: '색 온도 추가'
+      }
     },
     {
       path: '/class',
       name: 'class',
       component: ClassList,
-      beforeEnter: requireAuth
+      beforeEnter: requireAuth,
+      meta: {
+        title: '교실 목록'
+      }
     },
     {
       path: '/add/class',
       name: 'addclass',
       component: ClassAdd,
-      beforeEnter: requireAuth
+      beforeEnter: requireAuth,
+      meta: {
+        title: '교실 추가'
+      }
     },
     {
       path: '/subject',
       name: 'subject',
       component: SubjectList,
-      beforeEnter: requireAuth
+      beforeEnter: requireAuth,
+      meta: {
+        title: '과목 목록'
+      }
     },
     {
       path: '/add/subject',
       name: 'addsubject',
       component: SubjectAdd,
-      beforeEnter: requireAuth
+      beforeEnter: requireAuth,
+      meta: {
+        title: '과목 추가'
+      }
     },
     {
       path: '/tag',
       name: 'tag',
       component: TagList,
-      beforeEnter: requireAuth
+      beforeEnter: requireAuth,
+      meta: {
+        title: '태그 리스트'
+      }
     },
     {
       path: '/add/tag',
       name: 'tagadd',
       component: TagAdd,
-      beforeEnter: requireAuth
-    },
-    {
-      path: '/setting',
-      name: 'setting',
-      component: Setting,
-      beforeEnter: requireAuth
+      beforeEnter: requireAuth,
+      meta: {
+        title: '태그 추가'
+      }
     }
   ]
 })
