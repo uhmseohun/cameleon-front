@@ -9,12 +9,12 @@ export default {
           route: '/subject'
         },
         {
-          title: '교실',
-          route: '/class'
-        },
-        {
           title: '색 온도',
           route: '/color'
+        },
+        {
+          title: '교실',
+          route: '/class'
         },
         {
           title: '태그',
@@ -27,8 +27,8 @@ export default {
     currentMenu () {
       const route = this.$route.path
       if (route === '/subject') return 0
-      if (route === '/class') return 1
-      if (route === '/color') return 2
+      if (route === '/color') return 1
+      if (route === '/class') return 2
       if (route === '/tag') return 3
       return -1
     }
