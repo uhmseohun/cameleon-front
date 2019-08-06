@@ -30,7 +30,17 @@ export default {
       console.log(this.form)
 
       this.$api.post('/color', this.form)
-        .then(() => this.$swal('성공!', '성공적으로 색상을 만들었습니다.', 'success'))
+        .then(async () => {
+          await this.$swal('성공!', '성공적으로 색상을 만들었습니다.', 'success')
+
+          this.form = {
+            name: '',
+            introduce: '',
+            kelvin: null
+          }
+
+          this.$router.push('/color')
+        })
         .catch(e => this.$swal('에러!', e.response.data.message, 'error'))
     }
   }
