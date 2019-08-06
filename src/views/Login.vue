@@ -19,6 +19,7 @@ export default {
           const token = r.data.accessToken
           localStorage.token = token
           this.$api.defaults.headers.common['authorization'] = token
+          this.$router.push('/')
         })
         .catch(e => {
           this.$swal('에러!', e.response.data.message, 'error')
