@@ -26,13 +26,20 @@ function requireAuth (to, from, next) {
 }
 
 function forbidAuth (to, from, next) {
-  if (localStorage.token) return next('/')
+  if (localStorage.token) return next('/auth/login')
   next()
 }
 
 export default new Router({
   base: process.env.BASE_URL,
   routes: [
+    {
+      path: '/',
+      name: 'home',
+      beforeEnter: (to, from, next) => {
+        next('/subject')
+      }
+    },
     {
       path: '/auth/login',
       name: 'login',
