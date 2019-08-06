@@ -80,8 +80,8 @@ export default {
   background: linear-gradient(to right, #ffc3a0, #FFAFBD);
 
   &__brand {
-    height: 20vh;
-    width: 100%;
+    height: 60%;
+    width: 60%;
   }
 
   &__form {
@@ -105,7 +105,7 @@ export default {
       justify-content: center;
       align-items: center;
 
-      height: 40vh;
+      height: 30vh;
     }
 
     &-item {
@@ -118,7 +118,7 @@ export default {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 8vh;
+      height: 20vh;
     }
 
     &-button {
