@@ -47,11 +47,13 @@ export default {
       >
       <input
         v-model="form.password"
+        type="password"
         class="input__text home__form-item"
         placeholder="비밀번호를 입력하세요"
       >
       <input
         v-model="form.repassword"
+        type="password"
         class="input__text home__form-item"
         placeholder="비밀번호를 다시 입력하세요"
       >
