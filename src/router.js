@@ -10,6 +10,8 @@ import ClassList from '@/views/Class.vue'
 import ClassAdd from '@/views/AddClass.vue'
 import SubjectList from '@/views/Subject.vue'
 import SubjectAdd from '@/views/AddSubject.vue'
+import TagList from '@/views/Tag.vue'
+import TagAdd from '@/views/AddTag.vue'
 import Setting from '@/views/Setting.vue'
 
 Vue.use(Router)
@@ -83,6 +85,18 @@ export default new Router({
       path: '/add/subject',
       name: 'addsubject',
       component: SubjectAdd,
+      beforeEnter: requireAuth
+    },
+    {
+      path: '/tag',
+      name: 'tag',
+      component: TagList,
+      beforeEnter: requireAuth
+    },
+    {
+      path: '/add/tag',
+      name: 'tagadd',
+      component: TagAdd,
       beforeEnter: requireAuth
     },
     {
