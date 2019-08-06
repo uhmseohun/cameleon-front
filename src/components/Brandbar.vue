@@ -2,6 +2,9 @@
 export default {
   name: 'brandbar',
   methods: {
+    push (to) {
+      this.$router.push(to)
+    },
     logout () {
       delete localStorage.token
       delete this.$api.defaults.headers.common['authorization']
@@ -14,7 +17,12 @@ export default {
 <template>
 <div class="navbar">
   <div class="navbar__brand">
-    <span class="navbar__block">카멜레온</span>
+    <span
+      @click="push('/')"
+      class="navbar__block"
+    >
+      카멜레온
+    </span>
   </div>
   <div class="navbar__logout">
     <i
