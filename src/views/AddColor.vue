@@ -29,7 +29,7 @@ export default {
 
       this.$api.post('/color', this.form)
         .then(async () => {
-          await this.$swal('성공!', '성공적으로 색상을 만들었습니다.', 'success')
+          await this.$swal('성공!', '성공적으로 새로운 색 온도을 만들었습니다.', 'success')
 
           this.form = {
             name: '',
@@ -47,17 +47,17 @@ export default {
 
 <template>
 <div class="color">
-  <span class="color__title">조명 색상 추가</span>
+  <span class="color__title">새로운 조명 색 온도 추가</span>
   <div class="color__form">
     <input
       v-model="form.name"
       class="input__text color__form-item"
-      placeholder="색상 이름을 입력하세요"
+      placeholder="색 온도 이름을 입력하세요"
     >
     <input
       v-model="form.introduce"
       class="input__text color__form-item"
-      placeholder="색상 소개를 입력하세요"
+      placeholder="색 온도 소개를 입력하세요"
     >
     <input
       v-model.number="form.kelvin"

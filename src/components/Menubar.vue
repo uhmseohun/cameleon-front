@@ -13,7 +13,7 @@ export default {
           route: '/class'
         },
         {
-          title: '색상 관리',
+          title: '색 온도 관리',
           route: '/color'
         },
         {
