@@ -9,7 +9,7 @@ import './registerServiceWorker'
 Vue.config.productionTip = false
 
 Vue.prototype.$api = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: 'http://cameleon-api.uhmtoto.space',
   headers: {
     common: {
       authorization: localStorage.token
