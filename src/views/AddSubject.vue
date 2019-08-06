@@ -5,66 +5,59 @@ export default {
     return {
       form: {
         name: '',
-        introduce: '',
-        grade: null,
-        class: null,
-        students: [],
-        president: [],
-        colors: {}
-      }
+        color: ''
+      },
+      colors: []
     }
   },
   methods: {
     add () {
-      this.$api.post('/class', this.form)
+      this.$api.post('/subject', this.form)
         .then(async () => {
-          await this.$swal('성공!', '성공적으로 새로운 교실을 만들었습니다.', 'success')
+          await this.$swal('성공!', '성공적으로 새로운 과목을 만들었습니다.', 'success')
 
           this.form = {
             name: '',
-            introduce: '',
-            grade: null,
-            class: null,
-            students: [],
-            president: [],
-            colors: {}
+            color: ''
           }
 
-          this.$router.push('/class')
+          this.$router.push('/subject')
         })
         .catch(e => this.$swal('에러!', e.response.data.message, 'error'))
     }
+  },
+  created () {
+    this.$api.get('/color')
+      .then(r => { this.colors = r.data.colors })
+      .catch(e => this.$swal('에러!', e.response.data.message, 'error'))
   }
 }
 </script>
 
 <template>
-<div class="color">
-  <span class="color__title">새로운 교실 추가</span>
-  <div class="color__form">
+<div class="subject">
+  <span class="subject__title">새로운 과목 추가</span>
+  <div class="subject__form">
     <input
       v-model="form.name"
-      class="input__text color__form-item"
-      placeholder="교실 이름을 입력하세요"
+      class="input__text subject__form-item"
+      placeholder="과목 이름을 입력하세요"
     >
-    <input
-      v-model="form.introduce"
-      class="input__text color__form-item"
-      placeholder="교실 소개를 입력하세요"
+    <select
+      v-model="form.color"
+      class="input__text subject__form-item"
     >
-    <input
-      v-model.number="form.grade"
-      class="input__text color__form-item"
-      placeholder="학년을 입력하세요"
-    >
-    <input
-      v-model.number="form.class"
-      class="input__text color__form-item"
-      placeholder="반을 입력하세요"
-    >
+      <option
+        :key="`color-${i}`"
+        v-for="(color, i) in colors"
+        :value="color._id"
+      >
+        {{ color.name }} 색 온도
+      </option>
+    </select>
     <button
       @click="add()"
-      class="input__button color__form-item color__form-button"
+      class="input__button subject__form-item subject__form-button"
     >
       추가하기
     </button>
@@ -73,7 +66,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.color {
+.subject {
   &__title {
     display: inline;
     font-size: 2.3rem;
