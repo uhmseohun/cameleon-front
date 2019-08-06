@@ -6,6 +6,8 @@ import Login from '@/views/Login.vue'
 import Join from '@/views/Join.vue'
 import ColorList from '@/views/Color.vue'
 import ColorAdd from '@/views/AddColor.vue'
+import ClassList from '@/views/Class.vue'
+import ClassAdd from '@/views/AddClass.vue'
 
 Vue.use(Router)
 
@@ -54,6 +56,18 @@ export default new Router({
       path: '/add/color',
       name: 'addcolor',
       component: ColorAdd,
+      beforeEnter: requireAuth
+    },
+    {
+      path: '/class',
+      name: 'class',
+      component: ClassList,
+      beforeEnter: requireAuth
+    },
+    {
+      path: '/add/class',
+      name: 'addclass',
+      component: ClassAdd,
       beforeEnter: requireAuth
     }
   ]
