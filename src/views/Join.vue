@@ -5,7 +5,6 @@ export default {
     return {
       form: {
         name: '',
-        type: 's',
         id: '',
         password: '',
         repassword: ''
@@ -41,13 +40,6 @@ export default {
         class="input__text home__form-item"
         placeholder="이름을 입력하세요"
       >
-      <select
-        v-model="form.type"
-        class="input__text home__form-item"
-      >
-        <option value="s">학생</option>
-        <option value="t">교사</option>
-      </select>
       <input
         v-model="form.id"
         class="input__text home__form-item"
