@@ -4,6 +4,8 @@ import axios from 'axios'
 
 import Login from '@/views/Login.vue'
 import Join from '@/views/Join.vue'
+import ColorList from '@/views/Color.vue'
+import ColorAdd from '@/views/AddColor.vue'
 
 Vue.use(Router)
 
@@ -41,6 +43,18 @@ export default new Router({
       name: 'join',
       component: Join,
       beforeEnter: forbidAuth
+    },
+    {
+      path: '/color',
+      name: 'color',
+      component: ColorList,
+      beforeEnter: requireAuth
+    },
+    {
+      path: '/add/color',
+      name: 'addcolor',
+      component: ColorAdd,
+      beforeEnter: requireAuth
     }
   ]
 })
