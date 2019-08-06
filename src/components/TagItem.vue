@@ -11,6 +11,12 @@ export default {
     return {
       color: 'rgb(233, 233, 233)'
     }
+  },
+  created () {
+    this.$api.get(`/color/${this.tag.color}`)
+      .then(r => {
+        this.color = `#${r.data.color.rgb}`
+      })
   }
 }
 </script>
@@ -19,7 +25,7 @@ export default {
 <div
   class="tag"
   :style="{
-    'background-color': `rgb()`
+    'background-color': color
   }"
 >
   <span class="tag__name">{{ tag.name }}</span>
