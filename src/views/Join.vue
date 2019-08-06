@@ -1,8 +1,12 @@
 <script>
+import Logo from '@/assets/logo.png'
+
 export default {
   name: 'join',
+  components: { Logo },
   data () {
     return {
+      Logo,
       form: {
         name: '',
         id: '',
@@ -32,9 +36,7 @@ export default {
 <div class="home">
   <div class="home__form">
     <div class="home__form__login">
-      <span class="home__form__title">
-        회원가입
-      </span>
+      <img class="home__brand" :src="Logo">
       <input
         v-model="form.name"
         class="input__text home__form-item"
@@ -86,6 +88,11 @@ export default {
   background: -webkit-linear-gradient(to right, #ffc3a0, #FFAFBD);
   background: linear-gradient(to right, #ffc3a0, #FFAFBD);
 
+  &__brand {
+    height: 60%;
+    width: 60%;
+  }
+
   &__form {
     text-align: center;
 
@@ -99,11 +106,6 @@ export default {
 
     @media (max-width: 414px) {
       width: 80vw;
-    }
-
-    &__title {
-      font-size: 2.3rem;
-      margin-bottom: 3rem;
     }
 
     &__login {
