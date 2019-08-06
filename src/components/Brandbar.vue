@@ -1,6 +1,13 @@
 <script>
+import Logout from '@/assets/logout.png'
+
 export default {
   name: 'brandbar',
+  data () {
+    return {
+      Logout
+    }
+  },
   methods: {
     push (to) {
       this.$router.push(to)
@@ -24,12 +31,11 @@ export default {
       카멜레온
     </span>
   </div>
-  <div class="navbar__logout">
-    <i
-      @click="logout()"
-      class="fa fa-sign-out"
-    />
-  </div>
+  <img
+    class="navbar__logout"
+    @click="logout()"
+    :src="Logout"
+  />
 </div>
 </template>
 
@@ -50,10 +56,9 @@ export default {
 
   &__logout {
     float: right;
-    height: 100%;
+    height: 1.7rem;
     display: flex;
     align-items: center;
-    font-size: 1.7rem;
   }
 
   &__icon {
