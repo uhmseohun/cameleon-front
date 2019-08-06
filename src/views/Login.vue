@@ -46,14 +46,14 @@ export default {
         class="input__text home__form-item"
         placeholder="비밀번호를 입력하세요"
       >
-    </div>
-    <div class="home__form-login-box">
       <button
         @click="login()"
         class="home__form-button"
       >
         로그인
       </button>
+    </div>
+    <div class="home__form-login-box">
       <span class="home__form-join">
         계정이 없다면?&nbsp;
         <router-link
@@ -105,7 +105,7 @@ export default {
       justify-content: center;
       align-items: center;
 
-      height: 30vh;
+      height: 40vh;
     }
 
     &-item {
@@ -118,7 +118,7 @@ export default {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 30vh;
+      height: 8vh;
     }
 
     &-button {
