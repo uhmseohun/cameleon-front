@@ -5,20 +5,20 @@ export default {
     return {
       menus: [
         {
-          title: '과목 관리',
+          title: '과목',
           route: '/subject'
         },
         {
-          title: '교실 관리',
+          title: '교실',
           route: '/class'
         },
         {
-          title: '색 온도 관리',
+          title: '색 온도',
           route: '/color'
         },
         {
-          title: '설정',
-          route: '/setting'
+          title: '태그',
+          route: '/tag'
         }
       ]
     }
@@ -29,7 +29,7 @@ export default {
       if (route === '/subject') return 0
       if (route === '/class') return 1
       if (route === '/color') return 2
-      if (route === '/setting') return 3
+      if (route === '/tag') return 3
       return -1
     }
   }
