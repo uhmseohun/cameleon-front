@@ -27,8 +27,6 @@ export default {
 
       this.form.rgb = rgbToHex(rgb[0], rgb[1], rgb[2])
 
-      console.log(this.form)
-
       this.$api.post('/color', this.form)
         .then(async () => {
           await this.$swal('성공!', '성공적으로 색상을 만들었습니다.', 'success')
