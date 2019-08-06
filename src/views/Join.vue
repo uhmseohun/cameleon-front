@@ -4,18 +4,20 @@ export default {
   data () {
     return {
       form: {
+        name: '',
         id: '',
-        password: ''
+        password: '',
+        repassword: ''
       }
     }
   },
   methods: {
-    login () {
-      this.$api.post('/auth/login', this.form)
+    join () {
+      if (this.password !== this.repassword) return
+
+      this.$api.post('/auth/join', this.form)
         .then(r => {
-          const token = r.data.accessToken
-          localStorage.token = token
-          this.$api.defaults.headers.common['authorization'] = token
+          this.$swal('성공!', '회원가입을 성공했습니다.', 'success')
         })
         .catch(e => {
           this.$swal('에러!', e.response.data.message, 'error')
@@ -33,34 +35,38 @@ export default {
         회원가입
       </span>
       <input
+        v-model="form.name"
+        class="input__text home__form-item"
+        placeholder="이름을 입력하세요"
+      >
+      <input
         v-model="form.id"
-        @keyup.enter="login()"
         class="input__text home__form-item"
         placeholder="아이디를 입력하세요"
       >
       <input
         v-model="form.password"
-        @keyup.enter="login()"
         class="input__text home__form-item"
         placeholder="비밀번호를 입력하세요"
       >
-    </div>
-    <div class="home__form-login-box">
+      <input
+        v-model="form.repassword"
+        class="input__text home__form-item"
+        placeholder="비밀번호를 다시 입력하세요"
+      >
+      <span
+        v-show="form.password !== form.repassword &&
+          form.repassword"
+        class="home__form-error"
+      >
+        비밀번호가 일치하지 않습니다.
+      </span>
       <button
-        @click="login()"
+        @click="join()"
         class="home__form-button"
       >
-        로그인
+        회원가입
       </button>
-      <span class="home__form-join">
-        계정이 없다면?&nbsp;
-        <router-link
-          class="home__form-join-go"
-          to="/join"
-        >
-          회원가입
-        </router-link>
-      </span>
     </div>
   </div>
 </div>
@@ -77,10 +83,6 @@ export default {
   background: -webkit-linear-gradient(to right, #ffc3a0, #FFAFBD);
   background: linear-gradient(to right, #ffc3a0, #FFAFBD);
 
-  &__title {
-    font-size: 2.3rem;
-  }
-
   &__form {
     text-align: center;
 
@@ -96,18 +98,29 @@ export default {
       width: 80vw;
     }
 
+    &__title {
+      font-size: 2.3rem;
+      margin-bottom: 3rem;
+    }
+
     &__login {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-
-      height: 30vh;
     }
 
     &-item {
       width: 100%;
-      margin-top: 5px;
+      margin-top: 1rem;
+    }
+
+    &-error {
+      margin-top: 3px;
+      margin-right: auto;
+      margin-left: 0.5rem;
+      font-size: 0.8rem;
+      color: red;
     }
 
     &-login-box {
