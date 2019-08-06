@@ -17,6 +17,8 @@ export default {
       this.$api.post('/auth/login', this.form)
         .then(r => {
           const token = r.data.accessToken
+          localStorage.token = token
+          this.$api.defaults.headers.common['authorization'] = token
         })
         .catch(e => {
           this.$swal('에러!', e.response.data.message, 'error')
