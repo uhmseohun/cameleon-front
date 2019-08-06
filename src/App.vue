@@ -1,16 +1,29 @@
 <script>
+import BrandBar from '@/components/Brandbar.vue'
 import MenuBar from '@/components/Menubar.vue'
 
 export default {
   name: 'app',
-  components: { MenuBar }
+  components: { BrandBar, MenuBar },
+  computed: {
+    showBars () {
+      const path = this.$route.path
+      return !path.includes('/auth')
+    }
+  }
 }
 </script>
 
 <template>
   <div id="app" class="app">
+    <brand-bar
+      v-show="showBars"
+    />
     <router-view />
-    <menu-bar class="app__menubar" />
+    <menu-bar
+      v-show="showBars"
+      class="app__menubar"
+    />
   </div>
 </template>
 
