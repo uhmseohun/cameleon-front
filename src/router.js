@@ -8,6 +8,8 @@ import ColorList from '@/views/Color.vue'
 import ColorAdd from '@/views/AddColor.vue'
 import ClassList from '@/views/Class.vue'
 import ClassAdd from '@/views/AddClass.vue'
+import SubjectList from '@/views/Subject.vue'
+import SubjectAdd from '@/views/AddSubject.vue'
 import Setting from '@/views/Setting.vue'
 
 Vue.use(Router)
@@ -69,6 +71,18 @@ export default new Router({
       path: '/add/class',
       name: 'addclass',
       component: ClassAdd,
+      beforeEnter: requireAuth
+    },
+    {
+      path: '/subject',
+      name: 'subject',
+      component: SubjectList,
+      beforeEnter: requireAuth
+    },
+    {
+      path: '/add/subject',
+      name: 'addsubject',
+      component: SubjectAdd,
       beforeEnter: requireAuth
     },
     {
