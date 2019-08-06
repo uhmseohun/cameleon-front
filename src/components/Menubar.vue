@@ -28,7 +28,8 @@ export default {
       const route = this.$route.path
       if (route === '/subject') return 0
       if (route === '/class') return 1
-      if (route === '/setting') return 2
+      if (route === '/color') return 2
+      if (route === '/setting') return 3
       return -1
     }
   }
@@ -40,10 +41,10 @@ export default {
   <div
     :key="`menu-${i}`"
     v-for="(menu, i) in menus"
-    class="menubar__menu"
   >
     <router-link
       :class="{
+        'menubar__menu': true,
         'menubar__menu-selected': currentMenu === i
       }"
       :to="menu.route"
@@ -65,11 +66,12 @@ export default {
 
   &__menu {
     font-size: 1.3rem;
-    color: black;
-  }
+    color: rgb(150, 150, 150) !important;
 
-  &__menu-selected {
-    color: rgb(100, 100, 100) !important;
+    &-selected {
+      color: black !important;
+      font-weight: bold;
+    }
   }
 }
 </style>
