@@ -47,7 +47,7 @@ export default {
 
 <template>
 <div class="color">
-  <span class="color__title">새로운 조명 색 온도 추가</span>
+  <span class="color__title">새로운 색 온도 추가</span>
   <div class="color__form">
     <input
       v-model="form.name"

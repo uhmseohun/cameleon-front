@@ -24,7 +24,7 @@ export default {
 
 <template>
 <div class="color">
-  <span class="color__title">조명 색 온도 관리&nbsp;</span>
+  <span class="color__title">색 온도 관리&nbsp;</span>
   <span
     @click="push('/add/color')"
     class="color__add"
