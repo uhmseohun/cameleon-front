@@ -29,7 +29,7 @@ function forbidAuth (to, from, next) {
   next()
 }
 
-export default new Router({
+const router = new Router({
   base: process.env.BASE_URL,
   routes: [
     {
@@ -131,3 +131,12 @@ export default new Router({
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.title) {
+    document.title = `카멜레온 - ${to.meta.title}`
+  }
+  next()
+})
+
+export default router
